@@ -12,7 +12,7 @@ const App = (props) => {
       <p>The current count is {count}</p>
       <button onClick={() => setCount(count - 1)}>-1</button>
       <button onClick={() => setCount(count + 1)}>+1</button>
-
+      <button onClick={() => setCount(props.count)}>Reset</button>
     </div>
   );
 };
