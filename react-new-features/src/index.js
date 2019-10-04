@@ -4,10 +4,13 @@ import * as serviceWorker from './serviceWorker';
 
 const App = (props) => {
   // state does not need to be an object
+  // can call useState as needed
+  // when using useState and update the state, it completely replaces the state
   // use state returns array of [currentStateValue, function to update state]
   // const array = useState(10);
   const [count, setCount] = useState(props.count); // destructured
   const [text, setText] = useState('');
+  
   return (
     <div>
       <p>The current {text || 'count'} is {count}</p>
