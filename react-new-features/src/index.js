@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 const App = (props) => {
+  // state does not need to be an object
   // use state returns array of [currentStateValue, function to update state]
   // const array = useState(10);
   const [count, setCount] = useState(props.count); // destructured
-
+  const [text, setText] = useState('');
   return (
     <div>
-      <p>The current count is {count}</p>
+      <p>The current {text || 'count'} is {count}</p>
       <button onClick={() => setCount(count - 1)}>-1</button>
-      <button onClick={() => setCount(count + 1)}>+1</button>
       <button onClick={() => setCount(props.count)}>Reset</button>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <input type="text" value={text} onChange={(e) => setText(e.target.value)}/>
     </div>
   );
 };
