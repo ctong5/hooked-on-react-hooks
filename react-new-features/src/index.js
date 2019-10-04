@@ -29,6 +29,7 @@ import * as serviceWorker from './serviceWorker';
 const NoteApp = () => {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState('');
+
   const addNote = (e) => {
     e.preventDefault();
     setNotes([
@@ -36,7 +37,11 @@ const NoteApp = () => {
       { title }
     ]);
     setTitle('');
-  }
+  };
+
+  const removeNote = (title) => {
+    setNotes(notes.filter(note => note.title !== title))
+  };
 
   return (
     <div>
@@ -44,6 +49,7 @@ const NoteApp = () => {
       {notes.map((note) => (
         <div key={note.title}>
           <h3>{note.title}</h3>
+          <button onClick={() => removeNote(note.title)}>X</button>
         </div>
       ))}
       <p>Add note</p>
